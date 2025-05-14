@@ -8,7 +8,7 @@ public class ContinueDemo {
                               "peck of pickled peppers";
         
      //   searchMe = "peter piper picked a peck of pickled peppers";
-                     //여기서 공백 문자도 문자 space된 부분 
+                     //여기서 공백 문자도 문자 (space된 부분) 
         // length 메서드는
         // 위 문자열에 포함되어 있는 문자 개수를 리턴함.
         int max = searchMe.length();
