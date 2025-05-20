@@ -40,6 +40,7 @@ public class ChainedExceptionExample {
         }
     }
 
+    
     public static int parseInteger(String input) {
         try {
             return Integer.parseInt(input);
