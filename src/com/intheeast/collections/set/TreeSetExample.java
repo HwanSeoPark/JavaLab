@@ -6,23 +6,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-
-
-
-class Person {
-
-	private String name;
-	
-	public Person(String name) {
-	    this.name = name;
-	}
-	
-	public String getName() {
-	    return name;
-	}
-
-}
-
 public class TreeSetExample {	
 	public static void main(String[] args) {
 	    // 사람들의 Collection 생성
@@ -48,7 +31,7 @@ public class TreeSetExample {
 	     */                         
 	    // aggregate operations를 사용하여 TreeSet으로 수집
 	    Set<String> set = people.stream() // 리턴 값 : Stream<Person>
-	                            .map(Person::getName)
+	                            ./*<String>*/map(Person::getName)
 	                            .collect(Collectors.toCollection(TreeSet::new));
 	
 	    // TreeSet의 내용 출력 (중복 요소는 제거되며, 정렬됨)
