@@ -15,12 +15,8 @@ public class HelloWorldAnonymousClasses {
 	        }
 	    };
 	    
-	    return goodBye;
-	    
+	    return goodBye;	    
 	}
-	
-	
-	
 	
 	public void sayHello() {
 	   
