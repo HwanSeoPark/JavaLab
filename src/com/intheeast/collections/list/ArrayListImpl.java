@@ -31,7 +31,8 @@ public class ArrayListImpl {
 	    }
         ↓ */		
 		List<String> list = new ArrayList<String>(c);
-		
+		// Set의 리스트를 List로 만들고 싶을떄 Set의 참조변수를 아규먼트로 전달하고 있음
+		// c가 Set 참조변수의 아규먼트
 		
 		
 	}
