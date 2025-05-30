@@ -39,6 +39,7 @@ public class FieldReflectionDemo {
         }
 
         System.out.println("\n📜 4. getDeclaredFields() → 현재 클래스 내 모든 필드");
+        // excludes inherited fields.
         Field[] declaredFields = clazz.getDeclaredFields();
         for (Field f : declaredFields) {
             System.out.println("✔ Declared field: " + f.getName());

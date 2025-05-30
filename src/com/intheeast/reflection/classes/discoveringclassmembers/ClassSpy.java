@@ -14,7 +14,9 @@ public class ClassSpy {
 		try {
 		    Class<?> c = Class.forName(args[0]);
 		    out.format("Class:%n  %s%n%n", c.getCanonicalName());
-	
+		    // import에 static java.lang.System.out; 쓰면
+		    // System.out.println(); 생략하고 out만 쓸수있다.
+		    
 		    Package p = c.getPackage();
 		    out.format("Package:%n  %s%n%n",
 			       (p != null ? p.getName() : "-- No Package --"));
@@ -57,12 +59,12 @@ public class ClassSpy {
 		    	/* toGenericString 메서드
 		    	 이 메서드는 타입 파라미터를 포함하여 해당 메서드를 설명하는 문자열을 리턴.
                  이 문자열은 메서드의 접근 제어자(있는 경우)로 시작하며, 
-                 이어서 꺾쇠 괄호(<>)로 묶인 쉼표로 구분된 메서드의 타입 파라미터 목록(있는 경우), 
+                 이어서 꺾쇠 괄호(<>)로 묶인 쉼표로 구분된 메서드의 타입 파라미터 리스트(있는 경우), 
                  타입 파라미터의 제한(bound)이 있는 경우 이를 포함한 목록이 옴. 
                  그 다음에는 메서드의 제네릭 리턴 타입이 오고, 공백이 뒤따른 후, 
                  이 메서드를 선언한 클래스 이름, 마침표, 메서드 이름, 
                  괄호로 묶인 메서드의 제네릭 타입 파라미터 타입 리스트(쉼표로 구분됨)가 이어짐.
-				 만약 이 메서드가 가변 인자를 받도록 선언된 경우, 
+				 만약 이 메서드가 가변 아규먼트를 받도록 선언된 경우, 
 				 마지막 파라미터는 "Type\[]" 대신 "Type..."으로 표기.
 				 공백은 액세스 제어자 간, 그리고 액세스 제어자와 타입 파라미터 
                  또는 리턴 타입 사이를 구분하는 데 사용.

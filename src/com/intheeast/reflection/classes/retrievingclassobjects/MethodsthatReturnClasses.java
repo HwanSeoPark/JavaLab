@@ -5,9 +5,14 @@ import java.lang.reflect.Modifier;
 
 public class MethodsthatReturnClasses {
 	
+	// 클래스 내애서도 인터페이스 정의 가능
+	public interface hello {
+		public void helloWorld();
+	}
+	
 	public static void main(String[] args) {
 		// 주어진 클래스의 슈퍼 클래스를 리턴.
-//		Class clazz; // <- 보통 관례로 Class의 참조변수는 clazz로 쓴다
+//		Class clazz = java.lang.String.class; // <- 보통 관례로 Class의 참조변수는 clazz로 쓴다
 //		Class c2 = clazz.getSuperclass();
 		// ↓ 등가
 		Class c1 = java.lang.String.class.getSuperclass();

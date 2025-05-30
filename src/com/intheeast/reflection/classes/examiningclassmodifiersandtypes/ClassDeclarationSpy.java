@@ -15,9 +15,12 @@ public class ClassDeclarationSpy {
 	
     public static void main(String... args) {
     	
+    	ArrayList al;
     	ConcurrentNavigableMap cnm;
     	String s;
 		try {
+			// 현재 기저 클래스 : java.util.ArrayList
+			// 기저 클래스 -> 영어로 UnderLineClass
 		    Class<?> c = Class.forName(args[0]);
 		    /* <getCanonicalName 메서드>
 		     기저 클래스(Class 객체가 참조하고 있는 실제 자바 클래스)의 정규 이름(canonical name)을 
@@ -26,10 +29,10 @@ public class ClassDeclarationSpy {
 			 정규 이름이 없는 클래스의 예는 다음과 같음.
 			 * 로컬 클래스 (local class)
 			 * 익명 클래스 (anonymous class)
-			 * 숨겨진 클래스 (hidden class) 
+			 * 숨겨진 클래스 (hidden class) <- 자바 15부터 나옴
 			 * 구성 요소 타입(component type)에 정규 이름이 없는 배열 (예: 로컬 클래스의 배열 등)
 		     */
-		    out.format("Class:%n  %s%n%n", c.getCanonicalName());
+		    out.format("Class:%n  %s%n%n", c.getCanonicalName()); //FQNC이름
 		    out.format("Modifiers:%n  %s%n%n",
 			       Modifier.toString(c.getModifiers()));
 	
