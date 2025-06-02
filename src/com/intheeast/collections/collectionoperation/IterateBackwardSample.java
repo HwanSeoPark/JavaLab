@@ -13,7 +13,8 @@ public class IterateBackwardSample {
 	
 		// 여기서 리턴하는 ArrayList는 Arrays클래스의 내부 ArrayList 클래스
 		// java.util.Arrays$ArrayList
-		List<String> list = Arrays.asList("apple", "banana", "cherry");
+		List<String> list = 
+				Arrays.asList("apple", "banana", "cherry", "graph");
 
 		// 여기서 리턴하는 ArrayList는 ArrayList클래스
 		// java.util.ArrayList
@@ -26,7 +27,13 @@ public class IterateBackwardSample {
         for (ListIterator<String> it 
         		= list.listIterator(list.size()); it.hasPrevious(); ) {
         	String t = it.previous();
-            System.out.println(t);
+            Integer prvIndex = it.previousIndex();
+            // nextIndex는 forward Iterable에 쓰이고
+            // previousIndex backward Iterable에 쓰인다
+            
+            System.out.println("Element : " + t);
+            System.out.println("previousIndex : " + prvIndex);
+           // System.out.println("Next Index : " + nextIndex);
         }
     }
 }

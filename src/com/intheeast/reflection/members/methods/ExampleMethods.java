@@ -4,6 +4,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class ExampleMethods<T> {
+	
+	void test() {
+		int y = 42;
+		Runnable r = () -> System.out.println(y);
+		r.run();
+	}
 	   
     public boolean simpleMethod(String stringParam, int intParam) {
         System.out.println("String: " + stringParam + ", integer: " + intParam); 

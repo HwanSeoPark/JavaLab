@@ -21,8 +21,9 @@ public class MethodSpy {
 				out.format("%s%n", m.toGenericString());
 		
 				out.format(fmt, "ReturnType", m.getReturnType());
+				// raw 타입으로 리턴 값 보여줌
 				out.format(fmt, "GenericReturnType", m.getGenericReturnType());
-		
+				// 제너릭 타입으로 리턴 값 보여줌
 				Class<?>[] pType  = m.getParameterTypes();
 				Type[] gpType = m.getGenericParameterTypes();
 				for (int i = 0; i < pType.length; i++) {

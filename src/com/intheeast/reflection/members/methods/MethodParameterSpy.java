@@ -63,8 +63,15 @@ public class MethodParameterSpy {
     }
     
     public static void main(String... args) {        
-
-        try {
+    	// 현재 코드상에서는 처음으로 특정 enum 상수가 필요함
+    	// 이 때 모든 enum 상수가 만들어짐.
+    	Level[] levels = Level.values();
+    	Level level = Level.valueOf("BASIC");
+    	Level silver = Level.valueOf(Level.class, "SILVER");
+    	Level basic = Level.BASIC;
+    	Level what = Level.valueOf(2);
+    
+    	try {
             printClassConstructors(Class.forName(args[0]));
             printClassMethods(Class.forName(args[0]));
         } catch (ClassNotFoundException x) {
