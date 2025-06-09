@@ -9,7 +9,8 @@ public class ProxyFactory {
     public static <T> T createProxy(T target, Class<T> interfaceType) {
         return (T) Proxy.newProxyInstance(
             interfaceType.getClassLoader(),
-            new Class<?>[]{interfaceType},
+            new Class<?>[]{interfaceType}, // CGLIB랑 다른점, 프록시는 
+            							   // 임이의 인터페이스를 구현해야함!!
             new TimeLoggingHandler(target)
         );
     }

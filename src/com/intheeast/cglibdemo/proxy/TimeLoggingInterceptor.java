@@ -9,6 +9,8 @@ import java.time.ZonedDateTime;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
+
+// 프록시와 비교해 보면 이해하기 쉬움(jdkproxy의 timeproxy패키지)
 public class TimeLoggingInterceptor implements MethodInterceptor {
 	
 	// C:\development\Workspace\codes\java_proj\JavaLabs
@@ -20,11 +22,14 @@ public class TimeLoggingInterceptor implements MethodInterceptor {
         return now;
 	}
 	
+	// CGLIB가 생성한 프록시의 메서드가 이 intercept 메서드를 호출함
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
     	ZonedDateTime now = printZoneDateTime(method);
-    	
+
+    	/////////////////////////////////////////////////////
         Object result = proxy.invokeSuper(obj, args);
+        /////////////////////////////////////////////////////
 
         logToFile(now, method); // 호출 이후 로그 파일 기록
         
