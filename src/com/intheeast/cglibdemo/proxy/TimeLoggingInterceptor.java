@@ -22,13 +22,15 @@ public class TimeLoggingInterceptor implements MethodInterceptor {
         return now;
 	}
 	
+	// 역할은 invoke와 등가...
 	// CGLIB가 생성한 프록시의 메서드가 이 intercept 메서드를 호출함
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
     	ZonedDateTime now = printZoneDateTime(method);
 
     	/////////////////////////////////////////////////////
-        Object result = proxy.invokeSuper(obj, args);
+        //다이나믹 프록시의 invoke: method.invoke(target, args); 
+    	Object result = proxy.invokeSuper(obj, args); // 시지립의 프록시는 프록시 클래스만 존재 -> 상속이라
         /////////////////////////////////////////////////////
 
         logToFile(now, method); // 호출 이후 로그 파일 기록

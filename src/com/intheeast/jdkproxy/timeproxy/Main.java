@@ -24,7 +24,11 @@ public class Main {
                 GreetingService s = createProxy(new GreetingServiceImpl(), GreetingService.class);
                 s.sayHello("John");
             }),
-
+            // 클라이언트가GreetingServiceImpl의 인스턴스 메서드인 sayHello를 호출했지만
+            // 그러나 $Proxy0.sayHello 호출됨
+            // $Proxy0.sayHello는 InvocationHandler 구현체의 invoke 메서드 호출함.
+            // 
+            
             new ServiceRunner("🧮 덧셈", () -> {
                 MathService s = createProxy(new MathServiceImpl(), MathService.class);
                 int result = s.add(10, 20);
@@ -47,6 +51,18 @@ public class Main {
             })
         );
 
+        /*
+         (t)-> {
+            t를 활용한 어떤 코드를 작성
+              System.out.printf("▶ %s 서비스 실행 중...\n", title);
+            try {
+                action.run();
+            } catch (Exception e) {
+                System.out.println("❌ 오류 발생: " + e.getMessage());
+            }
+            System.out.println();
+          }
+         */
         services.forEach(ServiceRunner::run);
 
         printFooter("✅ 모든 서비스 실행 완료");

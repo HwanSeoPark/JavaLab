@@ -6,7 +6,7 @@ public class GreetingService {
 		System.out.println("👋 Hello, " + name);
 	}
 
-// 디버깅시 여기 타켓 클래스의 메서드가 호출될때
+// 디버깅시 여기 타겟 클래스의 메서드가 호출될때
 // GreetingService$$EnhancerByCGLIB$$8c6cc991(GreetingService).sayHello(String) line: 6	
 //              ↑   (GreetingService) 이걸로 타켓 클래스를 표시하는걸 볼수 있음
 // GreetingService$$EnhancerByCGLIB$$ <-이게 SubClass

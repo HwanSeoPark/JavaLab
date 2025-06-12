@@ -13,7 +13,9 @@ public class TimeLoggingHandler implements InvocationHandler {
 	 private static final String LOG_FILE = "method_invocation.log";
 	
 	 public TimeLoggingHandler(Object target) {
-	     this.target = target;
+	     this.target = target; // 이 target 우리가 만든 target이다. 
+	     					   // 옵셔널. 만들어도 되고 안만들어도 되지만
+	     					   // 만드는게 관습
 	 }
 	 
 	 private ZonedDateTime printZoneDateTime(Method method) {
@@ -25,6 +27,8 @@ public class TimeLoggingHandler implements InvocationHandler {
 	 @Override
      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		 
+		 // around advice??
+		 // aspect가 수행하는 동작
 		 ZonedDateTime now = printZoneDateTime(method);
 
          Object result = method.invoke(target, args);
@@ -34,6 +38,7 @@ public class TimeLoggingHandler implements InvocationHandler {
          return result;
      }
 
+	 // 공통 관심사
      private void logToFile(ZonedDateTime time, Method method) {
          try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE, true))) {
              writer.printf("[%s] 호출된 메서드: %s()%n", time, method.getName());
